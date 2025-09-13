@@ -1,0 +1,32 @@
+{
+  "name": "auto-service-telegram-bot",
+  "version": "1.0.0",
+  "description": "Telegram бот для получения заявок с сайта автомобильных услуг",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "nodemon bot.js"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "auto",
+    "service",
+    "заявки"
+  ],
+  "author": "Auto Service Company",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "node-telegram-bot-api": "^0.63.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
