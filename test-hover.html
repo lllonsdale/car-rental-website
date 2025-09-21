@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест ховер-эффектов</title>
+    <link rel="stylesheet" href="css/dark-theme.css">
+</head>
+<body style="padding: 20px; background: var(--primary-bg);">
+    <h1 style="color: var(--text-primary); text-align: center; margin-bottom: 40px;">Тест ховер-эффектов для изображений автомобилей</h1>
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+        <p style="color: var(--text-secondary); margin-bottom: 30px; text-align: center;">
+            Наведите курсор на изображения ниже, чтобы увидеть циклическую смену ракурсов (сбоку → спереди → сзади → интерьер)
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px;">
+            
+            <!-- BMW X7 2024 -->
+            <div class="car-card">
+                <div class="car-image-container hover-effect-container" data-car-id="bmw-x7-2024" 
+                     data-images='["images/bmw/x7_2024_side.jpg", "images/bmw/x7_2024_front.jpg", "images/bmw/x7_2024_rear.jpg", "images/bmw/x7_2024_interior.jpg"]'>
+                    <img src="images/bmw/x7_2024_side.jpg" alt="BMW X7 2024" class="car-image hover-image">
+                    <div class="image-indicator">
+                        <span class="current-angle">Сбоку</span>
+                        <div class="angle-dots">
+                            <span class="dot active" data-angle="0"></span>
+                            <span class="dot" data-angle="1"></span>
+                            <span class="dot" data-angle="2"></span>
+                            <span class="dot" data-angle="3"></span>
+                        </div>
+                    </div>
+                    <div class="car-status status-available">Доступно</div>
+                </div>
+                <div class="car-content">
+                    <div class="car-header">
+                        <div>
+                            <h3 class="car-title">BMW X7</h3>
+                            <p class="car-year">2024 год</p>
+                        </div>
+                        <div class="car-price">8,500,000<div class="car-price-label">₽</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes AMG GT 2023 -->
+            <div class="car-card">
+                <div class="car-image-container hover-effect-container" data-car-id="mercedes-amg-gt-2023" 
+                     data-images='["images/mercedes-benz/amg_gt_2023_side.jpg", "images/mercedes-benz/amg_gt_2023_front.jpg", "images/mercedes-benz/amg_gt_2023_rear.jpg", "images/mercedes-benz/amg_gt_2023_interior.jpg"]'>
+                    <img src="images/mercedes-benz/amg_gt_2023_side.jpg" alt="Mercedes AMG GT 2023" class="car-image hover-image">
+                    <div class="image-indicator">
+                        <span class="current-angle">Сбоку</span>
+                        <div class="angle-dots">
+                            <span class="dot active" data-angle="0"></span>
+                            <span class="dot" data-angle="1"></span>
+                            <span class="dot" data-angle="2"></span>
+                            <span class="dot" data-angle="3"></span>
+                        </div>
+                    </div>
+                    <div class="car-status status-available">Доступно</div>
+                </div>
+                <div class="car-content">
+                    <div class="car-header">
+                        <div>
+                            <h3 class="car-title">Mercedes-Benz AMG GT</h3>
+                            <p class="car-year">2023 год</p>
+                        </div>
+                        <div class="car-price">11,500,000<div class="car-price-label">₽</div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div style="margin-top: 40px; padding: 20px; background: var(--card-bg); border-radius: 10px;">
+            <h3 style="color: var(--accent-color); margin-bottom: 15px;">Инструкции по тестированию:</h3>
+            <ol style="color: var(--text-secondary); line-height: 1.6;">
+                <li><strong>Наведите курсор</strong> на изображение автомобиля</li>
+                <li>Должна появиться индикаторная панель внизу изображения</li>
+                <li>Изображения должны автоматически циклически сменяться каждые 0.8 секунды</li>
+                <li>Активная точка в индикаторе должна подсвечиваться золотым цветом</li>
+                <li>При уходе курсора изображение должно вернуться к первому ракурсу (сбоку)</li>
+                <li>Можно кликать по точкам индикатора для ручной смены ракурсов</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Встроенный код инициализации ховер-эффектов
+        function initializeHoverEffects(card) {
+            const container = card.querySelector('.hover-effect-container');
+            const image = card.querySelector('.hover-image');
+            const indicator = card.querySelector('.current-angle');
+            const dots = card.querySelectorAll('.dot');
+            
+            if (!container || !image) return;
+            
+            const imagesData = container.getAttribute('data-images');
+            let images = [];
+            
+            try {
+                images = JSON.parse(imagesData) || [];
+            } catch (e) {
+                console.warn('Ошибка парсинга изображений:', e);
+                return;
+            }
+            
+            if (images.length <= 1) return;
+            
+            let currentIndex = 0;
+            let hoverTimer = null;
+            const angleNames = ['Сбоку', 'Спереди', 'Сзади', 'Интерьер'];
+            
+            function changeImage(index, updateDots = true) {
+                if (index >= 0 && index < images.length) {
+                    currentIndex = index;
+                    
+                    image.style.opacity = '0.7';
+                    
+                    setTimeout(() => {
+                        image.src = images[currentIndex];
+                        if (indicator) {
+                            indicator.textContent = angleNames[currentIndex] || `Вид ${currentIndex + 1}`;
+                        }
+                        
+                        if (updateDots) {
+                            dots.forEach((dot, i) => {
+                                dot.classList.toggle('active', i === currentIndex);
+                            });
+                        }
+                        
+                        image.style.opacity = '1';
+                    }, 150);
+                }
+            }
+            
+            container.addEventListener('mouseenter', () => {
+                if (images.length <= 1) return;
+                
+                let index = 0;
+                
+                const cycleThroughImages = () => {
+                    changeImage(index);
+                    index = (index + 1) % images.length;
+                    
+                    hoverTimer = setTimeout(cycleThroughImages, 800);
+                };
+                
+                hoverTimer = setTimeout(cycleThroughImages, 300);
+            });
+            
+            container.addEventListener('mouseleave', () => {
+                if (hoverTimer) {
+                    clearTimeout(hoverTimer);
+                    hoverTimer = null;
+                }
+                changeImage(0);
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    if (hoverTimer) {
+                        clearTimeout(hoverTimer);
+                        hoverTimer = null;
+                    }
+                    
+                    changeImage(index);
+                    
+                    setTimeout(() => {
+                        if (container.matches(':hover')) {
+                            let nextIndex = (index + 1) % images.length;
+                            const cycleThroughImages = () => {
+                                changeImage(nextIndex);
+                                nextIndex = (nextIndex + 1) % images.length;
+                                hoverTimer = setTimeout(cycleThroughImages, 800);
+                            };
+                            hoverTimer = setTimeout(cycleThroughImages, 800);
+                        }
+                    }, 100);
+                });
+            });
+        }
+        
+        // Инициализируем ховер-эффекты после загрузки DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Инициализация ховер-эффектов...');
+            
+            const carCards = document.querySelectorAll('.car-card');
+            carCards.forEach(card => {
+                initializeHoverEffects(card);
+                console.log('Ховер-эффект инициализирован для:', card.querySelector('.car-title')?.textContent);
+            });
+            
+            console.log('Все ховер-эффекты инициализированы!');
+        });
+    </script>
+</body>
+</html>

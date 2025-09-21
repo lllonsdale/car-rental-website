@@ -3,199 +3,639 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Предлагаем аренду и лизинг автомобилей, а также покупку авто под ключ из других стран. Выгодные условия и быстрое оформление.">
-    <title>Автомобильные услуги - Аренда, Лизинг, Покупка под ключ</title>
+    <meta name="description" content="RRAutoSpace - продажа и аренда премиальных автомобилей. Лучшие условия, быстрое оформление, гарантия качества.">
+    <title>RRAutoSpace - Продажа и аренда премиальных автомобилей</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <link rel="stylesheet" href="css/style.css?v=18">
+    <link rel="stylesheet" href="css/dark-theme.css?v=2">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#главная"><i class="fas fa-home"></i> Главная</a></li>
-                <li><a href="#аренда"><i class="fas fa-car"></i> Аренда</a></li>
-                <li><a href="#лизинг"><i class="fas fa-handshake"></i> Лизинг</a></li>
-                <li><a href="#под-ключ"><i class="fas fa-globe"></i> Под ключ</a></li>
-                <li><a href="#контакты"><i class="fas fa-phone"></i> Контакты</a></li>
-            </ul>
-        </nav>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-text">RRAuto<span class="logo-accent">Space</span></span>
+                </div>
+                
+                <nav class="nav">
+                    <ul class="nav-list">
+                        <li><a href="#главная">Главная</a></li>
+                        <li><a href="#каталог">Каталог</a></li>
+                        <li><a href="#услуги">Услуги</a></li>
+                        <li><a href="#о-нас">О нас</a></li>
+                        <li><a href="#контакты">Контакты</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-contacts">
+                    <a href="tel:+7999123456" class="phone-link">
+                        <i class="fas fa-phone"></i>
+                        +7 (999) 123-45-67
+                    </a>
+                    <button class="cta-button" onclick="openCallbackModal()">Заказать звонок</button>
+                </div>
+                
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section id="главная">
-            <h1>Автомобильные услуги</h1>
-            <p>Добро пожаловать в нашу компанию! Мы предоставляем полный спектр услуг по аренде, лизингу и покупке автомобилей.</p>
-            
-            <!-- Форма быстрой заявки -->
-            <div class="quick-form-container">
-                <h3>Оставьте заявку на бесплатную консультацию</h3>
-                <p class="form-subtitle">Мы свяжемся с вами в течение 15 минут</p>
-                
-                <form id="quickForm" class="quick-form">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Ваше имя" required>
-                            <i class="fas fa-user form-icon"></i>
+        <!-- Hero Section -->
+        <section id="главная" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">
+                            Премиальные автомобили<br>
+                            <span class="hero-accent">для вашего бизнеса</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Аренда, покупка и лизинг лучших автомобилей<br>
+                            с гарантией качества и сервиса
+                        </p>
+                        <div class="hero-actions">
+                            <button class="btn-primary large" onclick="openCallbackModal()">
+                                <i class="fas fa-phone"></i>
+                                Получить консультацию
+                            </button>
+                            <a href="#каталог" class="btn-secondary large">
+                                <i class="fas fa-car"></i>
+                                Посмотреть каталог
+                            </a>
                         </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
-                            <i class="fas fa-phone form-icon"></i>
+                    </div>
+                    <div class="hero-image">
+                        <div class="hero-car-showcase">
+                            <!-- Можно будет добавить изображение -->
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <select id="service" name="service" required>
-                            <option value="">Выберите услугу</option>
-                            <option value="аренда">Аренда автомобиля</option>
-                            <option value="лизинг">Лизинг автомобиля</option>
-                            <option value="под-ключ">Покупка под ключ</option>
-                            <option value="консультация">Общая консультация</option>
-                        </select>
-                        <i class="fas fa-car form-icon"></i>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Опишите ваши пожелания (необязательно)" rows="3"></textarea>
-                        <i class="fas fa-comment form-icon"></i>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Отправить заявку
-                    </button>
-                    
-                    <p class="form-privacy">
-                        Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                    </p>
-                </form>
+                </div>
             </div>
         </section>
 
-        <section id="аренда">
-            <div class="section-header">
-                <div class="section-number">01</div>
-                <div class="section-icon"><i class="fas fa-key"></i></div>
+        <!-- Statistics Section -->
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="79">0</div>
+                        <div class="stat-label">Автомобилей в наличии</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="1200">0</div>
+                        <div class="stat-label">Довольных клиентов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="7">0</div>
+                        <div class="stat-label">Лет на рынке</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="24">0</div>
+                        <div class="stat-label">Часа поддержка</div>
+                    </div>
+                </div>
             </div>
-            <h2>Аренда</h2>
-            <p>Предлагаем краткосрочную и долгосрочную аренду автомобилей различных классов.</p>
-            <ul>
-                <li><i class="fas fa-car"></i> Легковые автомобили</li>
-                <li><i class="fas fa-truck"></i> Внедорожники</li>
-                <li><i class="fas fa-shuttle-van"></i> Минивэны</li>
-                <li><i class="fas fa-gem"></i> Премиум класс</li>
-            </ul>
-            
-            <!-- Калькулятор аренды -->
-            <div class="calculator-container">
-                <h3><i class="fas fa-calculator"></i> Калькулятор стоимости аренды</h3>
+        </section>
+
+
+        <!-- Services Section -->
+        <section id="услуги" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Наши услуги</h2>
+                    <p class="section-subtitle">Полный спектр автомобильных услуг для бизнеса и частных клиентов</p>
+                </div>
                 
-                <div class="calculator">
-                    <div class="calc-inputs">
-                        <div class="calc-group">
-                            <label for="carClass">Класс автомобиля:</label>
-                            <div class="select-container">
-                                <select id="carClass">
-                                    <option value="economy">Эконом класс</option>
-                                    <option value="comfort" selected>Комфорт класс</option>
-                                    <option value="business">Бизнес класс</option>
-                                    <option value="premium">Премиум класс</option>
-                                </select>
-                                <span class="select-value" id="carClassValue">2 500 ₽/день</span>
-                            </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
                         </div>
-                        
-                        <div class="calc-group">
-                            <label for="rentalDays">Срок аренды (дни):</label>
-                            <div class="range-container">
-                                <input type="range" id="rentalDays" min="1" max="90" step="1" value="7">
-                                <span class="range-value" id="rentalDaysValue">7 дней</span>
-                            </div>
-                        </div>
-                        
-                        <div class="calc-group">
-                            <label>Дополнительные услуги:</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="insurance" value="300">
-                                    <span class="checkbox-custom"></span>
-                                    Полная страховка (+300 ₽/день)
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="driver" value="800">
-                                    <span class="checkbox-custom"></span>
-                                    Водитель (+800 ₽/день)
-                                </label>
-                                <label class="checkbox-item">
-                                    <input type="checkbox" id="delivery" value="500">
-                                    <span class="checkbox-custom"></span>
-                                    Доставка автомобиля (+500 ₽ разово)
-                                </label>
-                            </div>
-                        </div>
+                        <h3 class="service-title">Краткосрочная аренда</h3>
+                        <p class="service-description">Аренда премиальных автомобилей от 1 дня. Идеально для деловых поездок и особых событий</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> От 1 дня аренды</li>
+                            <li><i class="fas fa-check"></i> Бесплатная подача</li>
+                            <li><i class="fas fa-check"></i> Полная страховка</li>
+                        </ul>
+                        <button class="service-btn" onclick="openServiceModal('аренда')">
+                            Подробнее
+                        </button>
                     </div>
                     
-                    <div class="calc-result">
-                        <div class="result-item">
-                            <span class="result-label">Базовая стоимость:</span>
-                            <span class="result-value" id="basePrice">17 500 ₽</span>
+                    <div class="service-card featured">
+                        <div class="service-badge">Популярно</div>
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        <div class="result-item">
-                            <span class="result-label">Скидка за срок:</span>
-                            <span class="result-value discount" id="discount">-1 750 ₽ (10%)</span>
+                        <h3 class="service-title">Аренда с выкупом</h3>
+                        <p class="service-description">Гибкие условия лизинга с возможностью выкупа. Минимальные первоначальные взносы</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> От 0% первоначальный взнос</li>
+                            <li><i class="fas fa-check"></i> Срок от 12 до 60 месяцев</li>
+                            <li><i class="fas fa-check"></i> Налоговые льготы</li>
+                        </ul>
+                        <button class="service-btn" onclick="openServiceModal('лизинг')">
+                            Подробнее
+                        </button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
                         </div>
-                        <div class="result-item">
-                            <span class="result-label">Дополнительные услуги:</span>
-                            <span class="result-value" id="additionalServices">0 ₽</span>
-                        </div>
-                        <div class="result-item total">
-                            <span class="result-label">Итого к оплате:</span>
-                            <span class="result-value" id="totalPrice">15 750 ₽</span>
-                        </div>
-                        
-                        <button class="calc-submit-btn" onclick="submitRentalCalculation()">
-                            <i class="fas fa-car"></i>
-                            Забронировать по этой цене
+                        <h3 class="service-title">Под ключ</h3>
+                        <p class="service-description">Полное сопровождение покупки автомобиля за рубежом. От поиска до постановки на учёт</p>
+                        <ul class="service-features">
+                            <li><i class="fas fa-check"></i> Подбор автомобиля</li>
+                            <li><i class="fas fa-check"></i> Оформление документов</li>
+                            <li><i class="fas fa-check"></i> Доставка в Россию</li>
+                        </ul>
+                        <button class="service-btn" onclick="openServiceModal('под-ключ')">
+                            Подробнее
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="лизинг">
-            <div class="section-header">
-                <div class="section-number">02</div>
-                <div class="section-icon"><i class="fas fa-handshake"></i></div>
-            </div>
-            <h2>Лизинг автомобилей</h2>
-            <p>Выгодные условия лизинга для физических и юридических лиц.</p>
-            
-            <!-- Калькулятор лизинга -->
-            <div class="calculator-container">
-                <h3><i class="fas fa-calculator"></i> Калькулятор лизинговых платежей</h3>
+        <!-- Catalog Section -->
+        <section id="каталог" class="catalog">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Каталог автомобилей</h2>
+                    <p class="section-subtitle">Наша коллекция премиальных автомобилей для аренды и покупки</p>
+                </div>
                 
-                <div class="calculator">
-                    <div class="calc-inputs">
+                <!-- Поиск автомобилей -->
+            <div class="car-search-container">
+                <div class="search-filters">
+                    <div class="filter-row">
+                        <div class="filter-group">
+                            <label>Марка:</label>
+                            <select id="brandFilter">
+                                <option value="">Любая</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Тип кузова:</label>
+                            <select id="bodyTypeFilter">
+                                <option value="">Любой</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Категория:</label>
+                            <select id="categoryFilter">
+                                <option value="">Любая</option>
+                                <option value="economy">Эконом</option>
+                                <option value="comfort">Комфорт</option>
+                                <option value="business">Бизнес</option>
+                                <option value="premium">Премиум</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Город:</label>
+                            <select id="locationFilter">
+                                <option value="">Любой</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-row">
+                        <div class="filter-group price-range">
+                            <label>Цена аренды (в день):</label>
+                            <div class="range-inputs">
+                                <input type="number" id="priceFrom" placeholder="От" min="0">
+                                <span>—</span>
+                                <input type="number" id="priceTo" placeholder="До" min="0">
+                                <span>₽</span>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group year-range">
+                            <label>Год выпуска:</label>
+                            <div class="range-inputs">
+                                <input type="number" id="yearFrom" placeholder="От" min="2000" max="2025">
+                                <span>—</span>
+                                <input type="number" id="yearTo" placeholder="До" min="2000" max="2025">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label>Доступность:</label>
+                            <select id="availabilityFilter">
+                                <option value="">Любая</option>
+                                <option value="true">Доступно</option>
+                                <option value="false">Недоступно</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="search-actions">
+                        <button class="search-btn" onclick="searchCars()">
+                            <i class="fas fa-search"></i>
+                            Найти авто
+                        </button>
+                        <button class="reset-btn" onclick="resetFilters()">
+                            <i class="fas fa-times"></i>
+                            Очистить
+                        </button>
+                        <button class="search-btn" onclick="debugCatalog()" style="background: #dc3545;">
+                            <i class="fas fa-bug"></i>
+                            Диагностика
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Результаты поиска -->
+                <div class="search-results">
+                    <div class="results-header">
+                        <span class="results-count">Найдено: <span id="resultsCount">0</span> автомобилей</span>
+                        <div class="sort-options">
+                            <label>Сортировать:</label>
+                            <select id="sortBy">
+                                <option value="price_asc">По цене возрастание</option>
+                                <option value="price_desc">По цене убывание</option>
+                                <option value="year_desc">По году (новее)</option>
+                                <option value="year_asc">По году (старее)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="cars-grid" id="carsGrid">
+                        <!-- Здесь будут отображаться карточки автомобилей -->
+                    </div>
+                    
+                    <div class="no-results" id="noResults" style="display: none;">
+                        <i class="fas fa-car"></i>
+                        <h3>Автомобили не найдены</h3>
+                        <p>Попробуйте изменить параметры поиска</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="о-нас" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="section-header">
+                            <h2 class="section-title">Почему выбирают нас</h2>
+                            <p class="section-subtitle">Мы предоставляем лучшие условия на рынке и гарантируем качество на каждом этапе</p>
+                        </div>
+                        
+                        <div class="advantages-grid">
+                            <div class="advantage-item">
+                                <div class="advantage-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="advantage-content">
+                                    <h4>Надёжность</h4>
+                                    <p>Все автомобили проходят тщательную проверку и обслуживание</p>
+                                </div>
+                            </div>
+                            
+                            <div class="advantage-item">
+                                <div class="advantage-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="advantage-content">
+                                    <h4>Быстрое оформление</h4>
+                                    <p>Минимальный пакет документов и быстрое оформление за 30 минут</p>
+                                </div>
+                            </div>
+                            
+                            <div class="advantage-item">
+                                <div class="advantage-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="advantage-content">
+                                    <h4>Поддержка 24/7</h4>
+                                    <p>Круглосуточная поддержка и помощь на дороге</p>
+                                </div>
+                            </div>
+                            
+                            <div class="advantage-item">
+                                <div class="advantage-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="advantage-content">
+                                    <h4>Премиум класс</h4>
+                                    <p>Только лучшие автомобили ведущих мировых брендов</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-image">
+                        <div class="about-placeholder">
+                            <!-- Можно добавить изображение -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <!-- Contacts Section -->
+        <section id="контакты" class="contacts">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Контакты</h2>
+                    <p class="section-subtitle">Свяжитесь с нами любым удобным способом</p>
+                </div>
+                
+                <div class="contacts-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Телефон</h4>
+                                <p><a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                                <span>Круглосуточно</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                            <p><a href="mailto:info@rrautospace.ru">info@rrautospace.ru</a></p>
+                                <span>Ответ в течение часа</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Офис</h4>
+                                <p>Москва, ул. Примерная, 1</p>
+                                <span>Пн-Пт: 9:00-18:00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/79991234567">+7 (999) 123-45-67</a></p>
+                                <span>Быстрые ответы</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Оставьте заявку</h3>
+                        <p>Мы свяжемся с вами в течение 15 минут</p>
+                        
+                        <form id="contactForm" class="form">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Ваше имя" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" name="phone" placeholder="Телефон" required>
+                            </div>
+                            <div class="form-group">
+                                <select name="service" required>
+                                    <option value="">Выберите услугу</option>
+                                    <option value="аренда">Краткосрочная аренда</option>
+                                    <option value="лизинг">Аренда с выкупом</option>
+                                    <option value="покупка">Покупка под ключ</option>
+                                    <option value="консультация">Консультация</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" placeholder="Ваш вопрос или пожелание" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Отправить заявку
+                            </button>
+                            <p class="form-privacy">
+                                Нажимая кнопку, вы соглашаетесь на 
+                                <a href="#" class="privacy-link">обработку персональных данных</a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span class="logo-text">RRAuto<span class="logo-accent">Space</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Премиальные автомобили для вашего бизнеса.<br>
+                        Лучшие условия на рынке.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Telegram">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Услуги</h4>
+                    <ul class="footer-links">
+                        <li><a href="#каталог">Каталог автомобилей</a></li>
+                        <li><a href="#услуги">Краткосрочная аренда</a></li>
+                        <li><a href="#услуги">Аренда с выкупом</a></li>
+                        <li><a href="#услуги">Покупка под ключ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>О компании</h4>
+                    <ul class="footer-links">
+                        <li><a href="#о-нас">О нас</a></li>
+                        <li><a href="#">Отзывы клиентов</a></li>
+                        <li><a href="#">Вакансии</a></li>
+                        <li><a href="#">Новости</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <div class="footer-contacts">
+                        <div class="footer-contact">
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+79991234567">+7 (999) 123-45-67</a>
+                        </div>
+                        <div class="footer-contact">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@rrautospace.ru">info@rrautospace.ru</a>
+                        </div>
+                        <div class="footer-contact">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Москва, ул. Примерная, 1</span>
+                        </div>
+                        <div class="footer-contact">
+                            <i class="fas fa-clock"></i>
+                            <span>Пн-Пт: 9:00-18:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    <p>&copy; 2025 RRAutoSpace. Все права защищены.</p>
+                </div>
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Политика конфиденциальности</a>
+                    <a href="#" class="legal-link">Публичная оферта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Service Modal Dialogs -->
+    
+    <!-- Short-term Rental Modal -->
+    <div id="rentalServiceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-car"></i> Краткосрочная аренда</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <h4>Расчёт стоимости аренды</h4>
+                    <div class="calc-form">
                         <div class="calc-group">
-                            <label for="carPrice">Стоимость автомобиля:</label>
+                            <label for="rentalCarClass">Класс автомобиля:</label>
+                            <select id="rentalCarClass">
+                                <option value="economy">Эконом (1500 ₽/день)</option>
+                                <option value="comfort" selected>Комфорт (2500 ₽/день)</option>
+                                <option value="business">Бизнес (4000 ₽/день)</option>
+                                <option value="premium">Премиум (7000 ₽/день)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="calc-group">
+                            <label for="rentalDays">Количество дней:</label>
                             <div class="range-container">
-                                <input type="range" id="carPrice" min="500000" max="5000000" step="50000" value="1500000">
-                                <span class="range-value" id="carPriceValue">1 500 000 ₽</span>
+                                <input type="range" id="rentalDays" min="1" max="30" value="7">
+                                <span class="range-value" id="rentalDaysValue">7 дней</span>
+                            </div>
+                        </div>
+                        
+                        <div class="calc-services">
+                            <h5>Дополнительные услуги:</h5>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="deliveryService"> Доставка (+500 ₽)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="childSeat"> Детское кресло (+300 ₽/день)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="gpsNavigator"> GPS-навигатор (+200 ₽/день)
+                            </label>
+                        </div>
+                        
+                        <div class="calc-result">
+                            <div class="calc-row">
+                                <span>Базовая стоимость:</span>
+                                <span id="rentalBasePrice">17 500 ₽</span>
+                            </div>
+                            <div class="calc-row">
+                                <span>Доп. услуги:</span>
+                                <span id="rentalServices">0 ₽</span>
+                            </div>
+                            <div class="calc-row">
+                                <span>Скидка (7+ дней):</span>
+                                <span id="rentalDiscount">-10%</span>
+                            </div>
+                            <div class="calc-row total">
+                                <span>Итого:</span>
+                                <span id="rentalTotal">15 750 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="service-form">
+                        <h4>Оставьте заявку</h4>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="modal-submit-btn">
+                            <i class="fas fa-calendar-check"></i>
+                            Забронировать
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lease with Purchase Option Modal -->
+    <div id="leaseServiceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-handshake"></i> Лизинг с выкупом</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="service-details">
+                    <h4>Калькулятор лизинговых платежей</h4>
+                    <div class="calc-form">
+                        <div class="calc-group">
+                            <label for="leaseCarPrice">Стоимость автомобиля:</label>
+                            <div class="range-container">
+                                <input type="range" id="leaseCarPrice" min="500000" max="5000000" step="50000" value="1500000">
+                                <span class="range-value" id="leaseCarPriceValue">1 500 000 ₽</span>
                             </div>
                         </div>
                         
                         <div class="calc-group">
-                            <label for="initialPayment">Первоначальный взнос:</label>
+                            <label for="leaseInitialPayment">Первоначальный взнос:</label>
                             <div class="range-container">
-                                <input type="range" id="initialPayment" min="0" max="50" step="5" value="20">
-                                <span class="range-value" id="initialPaymentValue">20% (300 000 ₽)</span>
+                                <input type="range" id="leaseInitialPayment" min="0" max="50" step="5" value="20">
+                                <span class="range-value" id="leaseInitialPaymentValue">20% (300 000 ₽)</span>
                             </div>
                         </div>
                         
@@ -206,253 +646,125 @@
                                 <span class="range-value" id="leaseTermValue">36 месяцев</span>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="calc-result">
-                        <div class="result-item">
-                            <span class="result-label">Ежемесячный платёж:</span>
-                            <span class="result-value" id="monthlyPayment">41 667 ₽</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Общая сумма к выплате:</span>
-                            <span class="result-value" id="totalAmount">1 800 012 ₽</span>
-                        </div>
-                        <div class="result-item">
-                            <span class="result-label">Переплата:</span>
-                            <span class="result-value" id="overpayment">300 012 ₽</span>
-                        </div>
                         
-                        <button class="calc-submit-btn" onclick="submitLeaseCalculation()">
+                        <div class="calc-result">
+                            <div class="calc-row">
+                                <span>Сумма кредита:</span>
+                                <span id="leaseCreditAmount">1 200 000 ₽</span>
+                            </div>
+                            <div class="calc-row">
+                                <span>Ставка:</span>
+                                <span>12,5% годовых</span>
+                            </div>
+                            <div class="calc-row total">
+                                <span>Ежемесячный платёж:</span>
+                                <span id="leaseMonthlyPayment">41 667 ₽</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="service-form">
+                        <h4>Оставьте заявку</h4>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="comment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="modal-submit-btn">
                             <i class="fas fa-handshake"></i>
-                            Получить предложение
+                            Отправить заявку
                         </button>
-                    </div>
+                    </form>
                 </div>
-            </div>
-            
-            <ul>
-                <li><i class="fas fa-percentage"></i> Низкая процентная ставка</li>
-                <li><i class="fas fa-calendar-alt"></i> Гибкие условия платежа</li>
-                <li><i class="fas fa-bolt"></i> Быстрое оформление</li>
-                <li><i class="fas fa-car-alt"></i> Все марки автомобилей</li>
-            </ul>
-        </section>
-
-        <section id="под-ключ">
-            <div class="section-header">
-                <div class="section-number">03</div>
-                <div class="section-icon"><i class="fas fa-globe-americas"></i></div>
-            </div>
-            <h2>Автомобиль под ключ из другой страны</h2>
-            <p>Полный комплекс услуг по покупке и доставке автомобиля из-за рубежа.</p>
-            <ul>
-                <li><i class="fas fa-search"></i> Поиск и подбор автомобиля</li>
-                <li><i class="fas fa-wrench"></i> Проверка технического состояния</li>
-                <li><i class="fas fa-file-alt"></i> Оформление документов</li>
-                <li><i class="fas fa-shipping-fast"></i> Доставка и растаможка</li>
-                <li><i class="fas fa-clipboard-check"></i> Постановка на учет</li>
-            </ul>
-            
-            <!-- Форма покупки под ключ -->
-            <div class="service-form-container">
-                <h4>Заказать подбор авто</h4>
-                <form class="service-form" data-service="под-ключ">
-                    <div class="form-row">
-                        <input type="text" placeholder="Ваше имя" required>
-                        <input type="tel" placeholder="Телефон" required>
-                    </div>
-                    <div class="form-row">
-                        <input type="text" placeholder="Марка и модель" required>
-                        <select required>
-                            <option value="">Страна покупки</option>
-                            <option>Германия</option>
-                            <option>Япония</option>
-                            <option>Корея</option>
-                            <option>США</option>
-                            <option>Другая</option>
-                        </select>
-                    </div>
-                    <div class="form-row">
-                        <input type="number" placeholder="Бюджет (₽)" min="500000" required>
-                        <input type="number" placeholder="Макс. год выпуска" min="2010" max="2025">
-                    </div>
-                    <button type="submit">
-                        <i class="fas fa-globe"></i>
-                        Начать подбор
-                    </button>
-                </form>
-            </div>
-        </section>
-
-        <section id="контакты">
-            <div class="section-header">
-                <div class="section-number">04</div>
-                <div class="section-icon"><i class="fas fa-address-book"></i></div>
-            </div>
-            <h2>Контакты</h2>
-            <p>Свяжитесь с нами для получения подробной консультации:</p>
-            
-            <!-- Ссылка на под ключ (только для мобильных) -->
-            <div class="mobile-only-link" style="margin: 2rem 0; text-align: center; background: rgba(156, 163, 175, 0.1); padding: 1.5rem; border-radius: 15px; border: 2px dashed rgba(156, 163, 175, 0.3);">
-                <h4 style="color: rgba(255, 255, 255, 0.9); margin-bottom: 1rem; font-size: 1.1rem;">Нужен авто из-за рубежа?</h4>
-                <a href="#под-ключ" style="display: inline-block; padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-decoration: none; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
-                    <i class="fas fa-globe" style="margin-right: 0.7rem; font-size: 1.2em;"></i>
-                    Автомобиль под ключ
-                </a>
-                <p style="margin-top: 0.8rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">Полный спектр услуг по покупке и доставке</p>
-            </div>
-            
-            <ul>
-                <li><i class="fas fa-phone"></i> +7 (XXX) XXX-XX-XX</li>
-                <li><i class="fas fa-envelope"></i> info@autocompany.ru</li>
-                <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, д. 1</li>
-                <li><i class="fas fa-clock"></i> Пн-Пт 9:00-18:00</li>
-            </ul>
-        </section>
-    </main>
-
-    <!-- Мобильная навигация -->
-    <nav class="mobile-nav">
-        <ul>
-            <li><a href="#главная" title="Главная"><i class="fas fa-home"></i></a></li>
-            <li><a href="#аренда" title="Аренда"><i class="fas fa-car"></i></a></li>
-            <li><a href="#лизинг" title="Лизинг"><i class="fas fa-handshake"></i></a></li>
-            <li><a href="#контакты" title="Контакты"><i class="fas fa-phone"></i></a></li>
-        </ul>
-    </nav>
-
-    <footer>
-        <p>&copy; 2025 Автомобильные Услуги. Все права защищены.</p>
-    </footer>
-
-    <!-- Модальное окно для заявки на лизинг -->
-    <div id="leaseModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-handshake"></i> Заявка на лизинг</h3>
-                <span class="close" onclick="closeLeaseModal()">&times;</span>
-            </div>
-            
-            <div class="modal-body">
-                <div class="calculation-summary">
-                    <h4>Ваш расчет:</h4>
-                    <div class="summary-row">
-                        <span>Стоимость авто:</span>
-                        <span id="modalCarPrice">1 500 000 ₽</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Первоначальный взнос:</span>
-                        <span id="modalInitialPayment">20% (300 000 ₽)</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Срок лизинга:</span>
-                        <span id="modalLeaseTerm">36 месяцев</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Ежемесячный платеж:</span>
-                        <span id="modalMonthlyPayment">41 667 ₽</span>
-                    </div>
-                </div>
-                
-                <form id="leaseForm" class="modal-form">
-                    <h4>Оставьте свои данные:</h4>
-                    
-                    <div class="form-group">
-                        <input type="text" id="modalName" name="name" placeholder="Ваше имя" required>
-                        <i class="fas fa-user form-icon"></i>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="tel" id="modalPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
-                        <i class="fas fa-phone form-icon"></i>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="modalComment" name="comment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
-                        <i class="fas fa-comment form-icon"></i>
-                    </div>
-                    
-                    <button type="submit" class="modal-submit-btn">
-                        <i class="fas fa-paper-plane"></i>
-                        Отправить заявку
-                    </button>
-                    
-                    <p class="form-privacy">
-                        Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                    </p>
-                </form>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно для заявки на аренду -->
-    <div id="rentalModal" class="modal">
+    <!-- Turnkey Purchase Modal -->
+    <div id="turnkeyServiceModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-car"></i> Заявка на аренду</h3>
-                <span class="close" onclick="closeRentalModal()">&times;</span>
+                <h3><i class="fas fa-globe"></i> Покупка под ключ</h3>
+                <span class="modal-close">&times;</span>
             </div>
-            
             <div class="modal-body">
-                <div class="calculation-summary">
-                    <h4>Ваш расчет:</h4>
-                    <div class="summary-row">
-                        <span>Класс автомобиля:</span>
-                        <span id="modalRentalCarClass">Комфорт класс</span>
+                <div class="service-details">
+                    <h4>Полное сопровождение покупки</h4>
+                    
+                    <div class="turnkey-steps">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h5>Поиск и подбор</h5>
+                                <p>Находим идеальный автомобиль по вашим критериям</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h5>Проверка и осмотр</h5>
+                                <p>Полная техническая проверка и юридическая чистота</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h5>Оформление</h5>
+                                <p>Все документы, таможня, страховка</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h5>Доставка</h5>
+                                <p>Постановка на учёт и передача клиенту</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="summary-row">
-                        <span>Срок аренды:</span>
-                        <span id="modalRentalDays">7 дней</span>
+                    
+                    <div class="turnkey-info">
+                        <div class="info-row">
+                            <i class="fas fa-clock"></i>
+                            <span>Срок: 2-4 недели</span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Комиссия: 3-5% от стоимости</span>
+                        </div>
+                        <div class="info-row">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Гарантия 100%</span>
+                        </div>
                     </div>
-                    <div class="summary-row">
-                        <span>Базовая стоимость:</span>
-                        <span id="modalRentalBasePrice">17 500 ₽</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Скидка:</span>
-                        <span id="modalRentalDiscount">-1 750 ₽ (10%)</span>
-                    </div>
-                    <div class="summary-row">
-                        <span>Доп. услуги:</span>
-                        <span id="modalRentalServices">0 ₽</span>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Итого к оплате:</span>
-                        <span id="modalRentalTotal">15 750 ₽</span>
-                    </div>
+                    
+                    <form class="service-form">
+                        <h4>Оставьте заявку</h4>
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="+7 (999) 123-45-67" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="desiredCar" placeholder="Опишите желаемый автомобиль" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="budget" placeholder="Бюджет (необязательно)">
+                        </div>
+                        <button type="submit" class="modal-submit-btn">
+                            <i class="fas fa-globe"></i>
+                            Отправить заявку
+                        </button>
+                    </form>
                 </div>
-                
-                <form id="rentalForm" class="modal-form">
-                    <h4>Оставьте свои данные:</h4>
-                    
-                    <div class="form-group">
-                        <input type="text" id="modalRentalName" name="name" placeholder="Ваше имя" required>
-                        <i class="fas fa-user form-icon"></i>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="tel" id="modalRentalPhone" name="phone" placeholder="+7 (___) ___-__-__" required>
-                        <i class="fas fa-phone form-icon"></i>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="modalRentalComment" name="comment" placeholder="Комментарий (необязательно)" rows="3"></textarea>
-                        <i class="fas fa-comment form-icon"></i>
-                    </div>
-                    
-                    <button type="submit" class="modal-submit-btn">
-                        <i class="fas fa-calendar-check"></i>
-                        Забронировать
-                    </button>
-                    
-                    <p class="form-privacy">
-                        Нажимая кнопку, вы соглашаетесь на обработку персональных данных
-                    </p>
-                </form>
             </div>
         </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js?v=16"></script>
 </body>
 </html>
